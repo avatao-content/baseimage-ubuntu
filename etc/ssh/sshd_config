@@ -1,0 +1,11 @@
+Port 22
+AllowUsers user
+PermitRootLogin no
+UsePrivilegeSeparation sandbox
+StrictModes yes
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_rsa_key
+Subsystem sftp internal
+X11Forwarding no
+UsePAM yes

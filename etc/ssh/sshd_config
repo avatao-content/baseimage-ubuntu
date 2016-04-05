@@ -1,4 +1,4 @@
-Port 22
+Port 2222
 AllowUsers user
 PermitRootLogin no
 UsePrivilegeSeparation sandbox

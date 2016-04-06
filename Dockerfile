@@ -45,8 +45,10 @@ RUN sed -i 's://archive.ubuntu.com://de.archive.ubuntu.com:g' /etc/apt/sources.l
 # Set up the non-privileged user and SSH
 RUN adduser --disabled-password --gecos ',,,' user \
     && echo 'user:p' | chpasswd \
-    && ssh-keygen -f /etc/ssh/ssh_host_key_user -t ed25519 -N '' \
-    && chown user:user /etc/ssh/ssh_host_key_user \
+    && ssh-keygen -f /etc/ssh/ssh_user_ed25519_key -t ed25519 -N '' \
+    && ssh-keygen -f /etc/ssh/ssh_user_ecdsa_key -t ecdsa -N '' \
+    && ssh-keygen -f /etc/ssh/ssh_user_rsa_key -t rsa -N '' \
+    && chown user:user /etc/ssh/ssh_user_* \
     && mkdir -pm 0700 /var/run/sshd # PrivilegeSeparation as root
 
 COPY . /

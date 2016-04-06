@@ -3,7 +3,9 @@ AllowUsers user
 PermitRootLogin no
 UsePrivilegeSeparation no
 StrictModes no
-HostKey /etc/ssh/ssh_host_key_user
+HostKey /etc/ssh/ssh_user_ed25519_key
+HostKey /etc/ssh/ssh_user_ecdsa_key
+HostKey /etc/ssh/ssh_user_rsa_key
 Subsystem sftp internal
 X11Forwarding no
 UsePAM yes

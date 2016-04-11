@@ -28,10 +28,12 @@ RUN sed -i 's://archive.ubuntu.com://de.archive.ubuntu.com:g' /etc/apt/sources.l
         openssh-server \
         psmisc \
         python-dev \
+        python-flask \
         python-pip \
         python-requests \
         python-urllib3 \
         python3-dev \
+        python3-flask \
         python3-pip \
         screen \
         socat \

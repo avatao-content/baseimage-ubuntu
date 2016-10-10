@@ -9,3 +9,4 @@ HostKey /etc/ssh/ssh_host_rsa_key
 Subsystem sftp internal
 X11Forwarding no
 UsePAM yes
+UseDNS no

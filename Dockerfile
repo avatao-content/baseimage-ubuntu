@@ -22,6 +22,7 @@ RUN sed -i 's://archive.ubuntu.com://de.archive.ubuntu.com:g' /etc/apt/sources.l
         git \
         libc6-dev \
         libc6-dev-i386 \
+        libffi-dev \
         man-db \
         nano \
         netcat \

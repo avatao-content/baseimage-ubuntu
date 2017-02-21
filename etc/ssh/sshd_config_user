@@ -1,6 +1,7 @@
 Port 2222
-AllowUsers user
 PermitRootLogin no
+PasswordAuthentication yes
+ChallengeResponseAuthentication no
 UsePrivilegeSeparation no
 StrictModes no
 HostKey /etc/ssh/ssh_user_ed25519_key

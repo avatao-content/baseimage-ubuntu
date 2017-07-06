@@ -1,11 +1,9 @@
 FROM ubuntu:16.04
 
-ENV LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
-    DEBIAN_FRONTEND=noninteractive \
+ENV DEBIAN_FRONTEND=noninteractive \
     AVATAO_USER=user
 
-RUN locale-gen en_US.UTF-8 \
-    && dpkg --add-architecture i386 \
+RUN dpkg --add-architecture i386 \
     && apt-get -qy update \
     && apt-get -qy dist-upgrade \
     && apt-get -qy install \
@@ -23,6 +21,7 @@ RUN locale-gen en_US.UTF-8 \
         libffi-dev \
         libpam-script \
         libssl-dev \
+        locales \
         man-db \
         nano \
         netcat \
@@ -57,6 +56,11 @@ RUN adduser --disabled-password ${AVATAO_USER} \
     && mkdir -pm 0700 /var/run/sshd # PrivilegeSeparation as root
 
 COPY . /
+
+RUN chown -R ${AVATAO_USER}: /home/${AVATAO_USER} \
+    && locale-gen en_US.UTF-8
+
+ENV LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Override with --tmpfs since docker 1.10
 VOLUME ["/tmp", "/var/tmp"]

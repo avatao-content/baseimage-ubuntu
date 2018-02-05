@@ -1,12 +1,12 @@
 #!/bin/bash -eu
-# AVATAO_USER is defined in the Dockerfile
-# and SECRET must be set by the CRP...
+# AVATAO_USER is defined in the Dockerfile, here.
+# AVATAO_SECRET is set by CRP Docker.
 
 if [ "$AVATAO_USER" != "$PAM_USER" ]; then
     exit 1
 fi
 
-if [ "$SECRET" != "$PAM_AUTHTOK" ]; then
+if [ "$AVATAO_SECRET" != "$PAM_AUTHTOK" ]; then
     exit 1
 fi
 

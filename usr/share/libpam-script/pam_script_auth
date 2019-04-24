@@ -1,13 +1,16 @@
-#!/bin/bash -eu
-# AVATAO_USER is defined in the Dockerfile, here.
-# AVATAO_SECRET is set by CRP Docker.
+#!/bin/bash
+set -eu
 
-if [ "$AVATAO_USER" != "$PAM_USER" ]; then
-    exit 1
+# The user's primary auth method to their challenge instance is via this script.
+# Do NOT try to authenticate any other user here.
+if [ "user" != "$PAM_USER" ]; then
+  exit 1
 fi
 
+# AVATAO_SECRET is set by the challenge runtime provider.
+# Once the user is in, there is no point in overriding this secret.
 if [ "$AVATAO_SECRET" != "$PAM_AUTHTOK" ]; then
-    exit 1
+  exit 1
 fi
 
 exit 0

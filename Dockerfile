@@ -5,7 +5,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN dpkg --add-architecture i386 \
     && apt-get -qy update \
-    && apt-get -qy dist-upgrade \
     && apt-get -qy install \
         autoconf \
         automake \
@@ -27,14 +26,11 @@ RUN dpkg --add-architecture i386 \
         netcat \
         openssh-server \
         psmisc \
-        python-dev \
-        python-flask \
-        python-pip \
-        python-requests \
-        python-urllib3 \
         python3-dev \
         python3-flask \
         python3-pip \
+        python3-requests \
+        python3-urllib3 \
         screen \
         socat \
         sqlite \
